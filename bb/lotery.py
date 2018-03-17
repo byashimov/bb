@@ -8,10 +8,11 @@ WEEKDAYS = set(range(7))
 
 def get_next_date(dt=None, draw_weekdays=(2, 4)):
     """
+    Returns the next valid draw date starting from `dt`.
 
     :param dt: None, date or datetime to start from
     :param draw_weekdays: Tuple of integers from 0 to 6 (Sunday)
-    :return:
+    :return date: Date object
     """
 
     assert WEEKDAYS.issuperset(draw_weekdays), \
