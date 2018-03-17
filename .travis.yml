@@ -1,0 +1,14 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+install:
+  - pip install -r requirements.txt
+script:
+  - coverage run -m unittest2 discover tests
+  - flake8 .
+  - isort -sp .isort.cfg -rc -q -c
+after_success:
+  - pip install codecov
+  - coverage report
+  - codecov
