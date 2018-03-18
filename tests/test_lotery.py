@@ -21,6 +21,9 @@ class GetNextDateTestCase(TestCase):
 
             # Dst in Ireland, forward from 1 to 2 am
             ((2018, 3, 25, 1, 30), date(2018, 3, 28)),  # Sun => Wed
+
+            # Dst ambiguous time, back to +0
+            ((2018, 10, 28, 1, 30), date(2018, 10, 31)),  # Sun => Wed
         )
 
         for tz in timezones:
@@ -40,6 +43,9 @@ class GetNextDateTestCase(TestCase):
 
             # Dst in Ireland, forward from 1 to 2 am
             ((2018, 3, 25, 3, 30), date(2018, 3, 28)),  # Sun => Wed
+
+            # Dst ambiguous time, back to +0
+            ((2018, 10, 28, 3, 30), date(2018, 10, 31)),  # Sun => Wed
         )
 
         for args, expected in cases:
