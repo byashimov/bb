@@ -39,7 +39,7 @@ class GetNextDateTestCase(TestCase):
             ((2018, 4, 2), date(2018, 4, 4)),  # Mon => Wed
 
             # Dst in Ireland, forward from 1 to 2 am
-            ((2018, 3, 25, 1, 30), date(2018, 3, 28)),  # Sun => Wed
+            ((2018, 3, 25, 3, 30), date(2018, 3, 28)),  # Sun => Wed
         )
 
         for args, expected in cases:
