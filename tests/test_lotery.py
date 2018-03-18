@@ -5,12 +5,12 @@ from freezegun import freeze_time
 from pytz import UTC, timezone
 from unittest2 import TestCase
 
-from bb.lotery import CET, get_next_date
+from bb.lotery import get_next_date
 
 
 class GetNextDateTestCase(TestCase):
     def test_before_or_equal_cet(self):
-        timezones = (UTC, CET, None)
+        timezones = (UTC, timezone('Europe/Dublin'), None)
 
         cases = (
             ((2018, 3, 17), date(2018, 3, 21)),  # Sat => Wed

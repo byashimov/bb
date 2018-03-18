@@ -2,7 +2,7 @@ import datetime
 
 from pytz import timezone
 
-CET = timezone('CET')
+DUB = timezone('Europe/Dublin')
 WEEKDAYS = set(range(7))
 
 
@@ -19,13 +19,13 @@ def get_next_date(dt=None, draw_weekdays=(2, 4)):
         'Invalid `draw_weekdays`, expected from 0 to 6'
 
     if not dt:
-        dt = datetime.datetime.now(tz=CET)
+        dt = datetime.datetime.now(tz=DUB)
     elif type(dt) is datetime.date:
         dt = datetime.datetime(dt.year, dt.month, dt.day)
     elif dt.tzinfo is None:
-        dt = CET.localize(dt)
+        dt = DUB.localize(dt)
     else:
-        dt = dt.astimezone(CET)
+        dt = dt.astimezone(DUB)
 
     wd = dt.weekday()
     delta_days = filter(bool, ((x - wd) % 7 for x in draw_weekdays))
